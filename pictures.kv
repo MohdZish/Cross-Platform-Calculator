@@ -1,0 +1,205 @@
+#:kivy 1.0
+#:import kivy kivy
+#:import win kivy.core.window
+
+
+<Mainbutton@Button>:
+    font_size: 55
+    size_hint: 0.21, 0.117
+    font_name: "BebasNeue-Regular"
+
+<FloatLayout>:
+    id: Calculator
+    display: entry
+    displaym: mentry
+    canvas.before:
+        Color:
+            rgba: (0.2, 0.2, 0.2, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+    MyFloatInput:
+        pos_hint: {"x":0.01, "top":0.982}
+        size_hint: 0.98, 0.1
+        id: entry
+        font_size: 55
+        multiline: False
+        background_color: (0.564, 0.737, 0.564, 1)
+        background_normal: ''
+        cursor_color: (1, 1, 1, 1)
+        cursor_height: 0.5
+        font_name: "BebasNeue-Regular"
+
+    TextInput:
+        pos_hint: {"x":0.01, "top":0.982}
+        size_hint: 0.2, 0.05
+        text: "0"
+        id: mentry
+        font_size: 25
+        foreground_color: (0, 0, 0, 1)
+        multiline: False
+        font_name: "BebasNeue-Regular"
+        background_color: (0.564, 0.737, 0.564, 1)
+        background_normal: ''
+        cursor_color: (1, 1, 1, 1)
+        cursor_height: 0.5
+
+
+    Mainbutton:
+        pos_hint: {"x":0.032, "top":0.850}
+        text: "C"
+        on_press: entry.text = ""
+        background_normal: ''
+        background_color: (0.129, 0.129, 0.129, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.274, "top":0.850}
+        text: "B"
+        background_normal: ''
+        background_color: (0.129, 0.129, 0.129, 1)
+        on_press: Calculator.backspace()
+
+    Mainbutton:
+        pos_hint: {"x":0.516, "top":0.850}
+        text: "/"
+        on_press: entry.text += "/"
+        background_normal: ''
+        background_color: (0.129, 0.129, 0.129, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.758, "top":0.850}
+        text: u'\u00d7'
+        on_press: entry.text += "*"
+        background_normal: ''
+        background_color: (0.129, 0.129, 0.129, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.032, "top":0.710}
+        text: "7"
+        on_press: entry.text += "7"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.274, "top":0.710}
+        text: "8"
+        on_press: entry.text += "8"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.516, "top":0.710}
+        text: "9"
+        on_press: entry.text += "9"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.758, "top":0.710}
+        text: "-"
+        on_press: entry.text += "-"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.516, "top":0.570}
+        text: "6"
+        on_press: entry.text += "6"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.274, "top":0.570}
+        text: "5"
+        on_press: entry.text += "5"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.032, "top":0.570}
+        text: "4"
+        on_press: entry.text += "4"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.758, "top":0.570}
+        text: "+"
+        on_press: entry.text += "+"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.516, "top":0.430}
+        text: "3"
+        on_press: entry.text += "3"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.274, "top":0.430}
+        text: "2"
+        on_press: entry.text += "2"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.032, "top":0.430}
+        text: "1"
+        on_press: entry.text += "1"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.032, "top":0.290}
+        size_hint: 0.452, 0.117
+        text: "0"
+        on_press: entry.text += "0"
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.516, "top":0.290}
+        text: "."
+        on_press: entry.text += "."
+        background_normal: ''
+        background_color: (0.451, 0.451, 0.451, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.758, "top":0.430}
+        size_hint: 0.21, 0.257
+        text: "="
+        on_press: Calculator.evaluate(entry.text)
+        background_normal: ''
+        background_color: (0.933, 0.463, 0, 1)
+
+    Mainbutton:
+        pos_hint: {"x":0.032, "top":0.150}
+        text: "M+"
+        on_press: entry.text = ""
+        background_normal: ''
+        background_color: (0.129, 0.129, 0.129, 1)
+        on_press: Calculator.mplus()
+
+    Mainbutton:
+        pos_hint: {"x":0.274, "top":0.150}
+        text: "M-"
+        background_normal: ''
+        background_color: (0.129, 0.129, 0.129, 1)
+        on_press: Calculator.mminus()
+
+    Mainbutton:
+        pos_hint: {"x":0.516, "top":0.150}
+        text: "MR"
+        background_normal: ''
+        background_color: (0.129, 0.129, 0.129, 1)
+        on_press: Calculator.mrelease()
+
+    Mainbutton:
+        pos_hint: {"x":0.758 , "top":0.150}
+        text: "MC"
+        background_normal: ''
+        background_color: (0.129, 0.129, 0.129, 1)
+        on_press: Calculator.mclear()
